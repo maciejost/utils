@@ -1,0 +1,77 @@
+import { useEffect } from "react";
+import { Container } from "../../common/Container";
+import "./style.css";
+
+const Clock = () => (
+  <>
+    <div className="clock-body">
+      <div className="hours"></div>
+      <div className="disc disc-top"></div>
+      <div className="disc disc-bottom"></div>
+      <div className="hand second"></div>
+      <div className="hand minute"></div>
+      <div className="hand hour"></div>
+    </div>
+  </>
+);
+
+const AnalogClockApplet = () => {
+  useEffect(() => {
+    console.log("AnalogClockApplet mounted");
+    const time = document.querySelector(".hours")! as HTMLElement;
+    const secHand = document.querySelector(".second")! as HTMLElement;
+    const minHand = document.querySelector(".minute")! as HTMLElement;
+    const hourHand = document.querySelector(".hour")! as HTMLElement;
+
+    for (let i = 1; i <= 60; i++) {
+      if (i % 5 == 0) {
+        time.innerHTML +=
+          "<div class='hour-number'><div>" + i / 5 + "</div></div>";
+        const hours = document.getElementsByClassName(
+          "hour-number",
+        )! as HTMLCollectionOf<HTMLElement>;
+        hours[hours.length - 1].style.transform =
+          `translateX(-50%) rotate(${i * 6}deg)`;
+        const firstChild = hours[hours.length - 1].firstChild! as HTMLElement;
+        firstChild.style.transform = `rotate(${i * -6}deg)`;
+      } else {
+        time.innerHTML += "<div class='minute-bar'></div>";
+        const bars = document.getElementsByClassName("minute-bar")!;
+        const lastBar = bars[bars.length - 1]! as HTMLElement;
+        lastBar.style.transform = `translateX(-50%) rotate(${i * 6}deg)`;
+      }
+    }
+
+    function startClock() {
+      const now = new Date();
+      const seconds = now.getSeconds();
+      const minutes = now.getMinutes();
+      const hours = now.getHours();
+
+      const secDeg = seconds * (360 / 60) + minutes * 360;
+      const minDeg = minutes * (360 / 60) + seconds / 12;
+      const hourDeg = hours * (360 / 12) + (minutes / 12) * (360 / 60);
+      secHand!.style.transform = `translateX(-50%) rotate(${secDeg}deg)`;
+      minHand!.style.transform = `translateX(-50%) rotate(${minDeg}deg)`;
+      hourHand!.style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
+    }
+    setInterval(startClock, 1000);
+    startClock();
+  }, []);
+
+  return (
+    <section>
+      <Clock />
+    </section>
+  );
+};
+
+export const AnalogClock = () => (
+  <Container
+    appletIcon="⌚︎"
+    appletTitle="Analog clock"
+    appletDescription="An analog clock that shows the current time, for easier setting of watches."
+  >
+    <AnalogClockApplet />
+  </Container>
+);
