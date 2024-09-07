@@ -35,7 +35,7 @@ export const Container: React.FC<ContainerProps> = ({
       )}
 
       <dialog
-        className="absolute bg-background-page top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[800px] max-w-[calc(100vw-2rem)] min-w-[380px] p-16 md:p-40 "
+        className="max-h-[90vh] overflow-y-auto absolute bg-background-page top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[800px] max-w-[calc(100vw-2rem)] min-w-[380px] p-16 md:p-40 "
         open={isAppletOpen}
       >
         <button
