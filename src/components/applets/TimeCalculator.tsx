@@ -13,7 +13,6 @@ const howManyDaysFromInitial = (initialTime: Date, newTime: Date) => {
   if (diffInDays === 0) return "";
   if (diffInDays > 0) return `(+${diffInDays} days)`;
 
-  console.log({ diffInDays });
   return `(${diffInDays} days)`;
 };
 
