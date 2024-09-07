@@ -56,7 +56,7 @@ const TimeCalculatorApplet = () => {
           required
         />
       </div>
-      <div className="flex gap-24 flex-wrap">
+      <div className="flex gap-24">
         <Select
           label="Add/Subtract"
           className="max-w-[10rem] w-fit"
@@ -76,7 +76,7 @@ const TimeCalculatorApplet = () => {
 
         <TextInput
           label="Hours"
-          className="max-w-[10rem] w-64"
+          className="max-w-[72px]"
           labelProps={{
             variant: "medium",
             className: "font-bold",
@@ -92,7 +92,7 @@ const TimeCalculatorApplet = () => {
 
         <TextInput
           label="Minutes"
-          className="max-w-[10rem] w-64"
+          className="max-w-[72px]"
           labelProps={{
             variant: "medium",
             className: "font-bold",
@@ -108,9 +108,9 @@ const TimeCalculatorApplet = () => {
       </div>
 
       {(hours !== 0 || minutes !== 0) && (
-        <div>
+        <div className="heading-3">
           <p className="font-bold">New time</p>
-          <time>
+          <time className="font-normal">
             {result} {resultDay}
           </time>
         </div>
