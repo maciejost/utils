@@ -7,7 +7,7 @@ function App() {
   return (
     <main className="px-16">
       <section
-        className="flex flex-col gap-24 justify-center py-24 px-40 rounded-lg mt-64 max-w-[40rem] mx-auto bg-background-container"
+        className="flex flex-col gap-24 justify-center md:py-24 md:px-40 py-24 px-24 rounded-lg mt-64 max-w-[40rem] mx-auto bg-background-container"
         data-theme="dark"
       >
         <h1 data-theme="dark" className="text-center title text-text-default">
@@ -19,7 +19,15 @@ function App() {
           find anymore.
         </p>
       </section>
-      <section>
+      <section className="mt-40 md:mt-64 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-24 gap-y-32 max-w-[1440px] mx-auto">
+        <TimeCalculator />
+        <TimeCalculator />
+        <TimeCalculator />
+        <TimeCalculator />
+        <TimeCalculator />
+        <TimeCalculator />
+        <TimeCalculator />
+        <TimeCalculator />
         <TimeCalculator />
       </section>
     </main>

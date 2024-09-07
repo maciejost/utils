@@ -8,7 +8,7 @@ export const TimeCalculator = () => (
   <Container
     appletIcon="🕒"
     appletTitle="Time Calculator"
-    appletDescription="This applet allows you to add/subtract time from a given time."
+    appletDescription="This applet allows you to add/subtract time in minutes/hours from a given time."
   >
     <TimeCalculatorApplet />
   </Container>
