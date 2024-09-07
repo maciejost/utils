@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Container } from "../common/Container";
+import { Select } from "@fremtind/jkl-select-react";
+import { TextInput } from "@fremtind/jkl-text-input-react";
 
 const howManyDaysFromInitial = (initialTime: Date, newTime: Date) => {
   const ONE_DAY = 24 * 60 * 60 * 1000;
@@ -38,9 +40,9 @@ const TimeCalculatorApplet = () => {
   const resultDay = howManyDaysFromInitial(initialTime, newTime);
 
   return (
-    <section className="">
+    <section className="flex flex-col gap-16">
       <div>
-        <label htmlFor="initTime" className="block">
+        <label htmlFor="initTime" className="block font-bold">
           Choose the initial time
         </label>
         <input
@@ -54,56 +56,60 @@ const TimeCalculatorApplet = () => {
           required
         />
       </div>
-      <div className="flex gap-24">
-        <div>
-          <label htmlFor="operator" className="block">
-            Add/Subtract
-          </label>
-          <select
-            value={operator}
-            onChange={(e) => setOperator(e.target.value)}
-            id="operator"
-            name="operator"
-            className="block"
-          >
-            <option value="add">Add</option>
-            <option value="subtract">Subtract</option>
-          </select>
-        </div>
-        <div className="w-fit">
-          <label htmlFor="hours" className="block">
-            Hours
-          </label>
-          <input
-            type="number"
-            id="hours"
-            name="hours"
-            min="0"
-            required
-            className="block w-fit"
-            value={hours}
-            onChange={(e) => setHours(Number(e.target.value))}
-          />
-        </div>
-        <div>
-          <label htmlFor="minutes" className="block">
-            Minutes
-          </label>
-          <input
-            type="number"
-            id="minutes"
-            name="minutes"
-            min="0"
-            required
-            className="block w-fit"
-            value={minutes}
-            onChange={(e) => setMinutes(Number(e.target.value))}
-          />
-        </div>
+      <div className="flex gap-24 flex-wrap">
+        <Select
+          label="Add/Subtract"
+          className="max-w-[10rem] w-fit"
+          value={operator}
+          onChange={(e) => setOperator(e.target.value)}
+          id="operator"
+          name="operator"
+          labelProps={{
+            variant: "medium",
+            className: "font-bold",
+          }}
+          items={[
+            { value: "add", label: "Add" },
+            { value: "subtract", label: "Subtract" },
+          ]}
+        />
+
+        <TextInput
+          label="Hours"
+          className="max-w-[10rem] w-64"
+          labelProps={{
+            variant: "medium",
+            className: "font-bold",
+          }}
+          type="number"
+          id="hours"
+          name="hours"
+          min="0"
+          required
+          value={hours}
+          onChange={(e) => setHours(Number(e.target.value))}
+        />
+
+        <TextInput
+          label="Minutes"
+          className="max-w-[10rem] w-64"
+          labelProps={{
+            variant: "medium",
+            className: "font-bold",
+          }}
+          type="number"
+          id="minutes"
+          name="minutes"
+          min="0"
+          required
+          value={minutes}
+          onChange={(e) => setMinutes(Number(e.target.value))}
+        />
       </div>
+
       {(hours !== 0 || minutes !== 0) && (
         <div>
-          <p className="block">New time</p>
+          <p className="font-bold">New time</p>
           <time>
             {result} {resultDay}
           </time>
