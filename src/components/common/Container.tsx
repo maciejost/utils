@@ -33,6 +33,7 @@ export const Container: React.FC<ContainerProps> = ({
           className="w-screen h-screen absolute backdrop-blur-sm bg-granitt bg-opacity-85 inset-0 -z-1"
         />
       )}
+
       <dialog
         className="absolute bg-background-page top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[800px] max-w-[calc(100vw-2rem)] min-w-[380px] p-16 md:p-40 "
         open={isAppletOpen}
@@ -48,7 +49,8 @@ export const Container: React.FC<ContainerProps> = ({
           <h2 className="heading-2 mb-12">{appletTitle}</h2>
           <p className="text-left max-w-[468px]">{appletDescription}</p>
         </div>
-        {children}
+
+        {isAppletOpen && children}
       </dialog>
     </>
   );
