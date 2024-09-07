@@ -130,6 +130,9 @@ const config: Config = {
             padding: "0",
           },
         },
+        ".border-clock": {
+          border: "14px solid var(--jkl-color-background-action)",
+        },
       });
     }),
   ],

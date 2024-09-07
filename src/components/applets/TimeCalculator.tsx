@@ -50,6 +50,7 @@ const TimeCalculatorApplet = () => {
           onChange={(e) => setTime(e.target.value)}
           type="time"
           id="initTime"
+          className="bg-background-page text-text-default"
           name="appt"
           min="09:00"
           max="18:00"

@@ -9,6 +9,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body * {
+    @apply text-text-default;
+}
+
 @font-face {
     font-family: "Fremtind Material Symbols";
     font-weight: 300 500;
