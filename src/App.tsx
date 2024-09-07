@@ -23,19 +23,6 @@ function App() {
       <section className="mt-40 md:mt-64 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-24 gap-y-32 max-w-[1440px] mx-auto">
         <TimeCalculator />
         <AnalogClock />
-        <AnalogClock />
-        <AnalogClock />
-        <AnalogClock />
-        <AnalogClock />
-        <AnalogClock />
-        <AnalogClock />
-        <TimeCalculator />
-        <TimeCalculator />
-        <TimeCalculator />
-        <TimeCalculator />
-        <TimeCalculator />
-        <TimeCalculator />
-        <TimeCalculator />
       </section>
     </main>
   );
