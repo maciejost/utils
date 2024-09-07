@@ -1,6 +1,7 @@
 import { initTabListener } from "@fremtind/jkl-core";
 import { TimeCalculator } from "./components/applets/TimeCalculator";
 import { AnalogClock } from "./components/applets/AnalogClock";
+import { Base64Handler } from "./components/applets/Base64Handler";
 
 function App() {
   initTabListener();
@@ -23,6 +24,7 @@ function App() {
       <section className="mt-40 md:mt-64 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-24 gap-y-32 max-w-[1440px] mx-auto">
         <TimeCalculator />
         <AnalogClock />
+        <Base64Handler />
       </section>
     </main>
   );
