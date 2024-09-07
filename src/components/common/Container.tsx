@@ -34,7 +34,7 @@ export const Container: React.FC<ContainerProps> = ({
         />
       )}
       <dialog
-        className="absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-screen-sm min-w-[380px] p-16 md:p-40 "
+        className="absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[1200px] max-w-[calc(100vw-2rem)] min-w-[380px] p-16 md:p-40 "
         open={isAppletOpen}
       >
         <button
