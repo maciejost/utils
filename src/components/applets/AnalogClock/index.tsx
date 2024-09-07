@@ -1,23 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "../../common/Container";
 import "./style.css";
 
-const Clock = () => (
-  <>
-    <div className="clock-body">
-      <div className="hours"></div>
-      <div className="disc disc-top"></div>
-      <div className="disc disc-bottom"></div>
-      <div className="hand second"></div>
-      <div className="hand minute"></div>
-      <div className="hand hour"></div>
-    </div>
-  </>
-);
-
-const AnalogClockApplet = () => {
+const Clock = () => {
   useEffect(() => {
-    console.log("AnalogClockApplet mounted");
     const time = document.querySelector(".hours")! as HTMLElement;
     const secHand = document.querySelector(".second")! as HTMLElement;
     const minHand = document.querySelector(".minute")! as HTMLElement;
@@ -60,8 +46,40 @@ const AnalogClockApplet = () => {
   }, []);
 
   return (
-    <section>
+    <div className="w-full sm:w-[unset] sm:mx-0 mx-auto flex justify-center">
+      <div className="clock-body">
+        <div className="hours"></div>
+        <div className="disc disc-top"></div>
+        <div className="disc disc-bottom"></div>
+        <div className="hand second"></div>
+        <div className="hand minute"></div>
+        <div className="hand hour"></div>
+      </div>
+    </div>
+  );
+};
+
+const AnalogClockApplet = () => {
+  const [timeNow, setTimeNow] = useState(new Date().toLocaleTimeString());
+  const [dateNow, setDateNow] = useState(new Date().toLocaleDateString());
+
+  useEffect(() => {
+    setInterval(() => {
+      setTimeNow(new Date().toLocaleTimeString());
+      setDateNow(new Date().toLocaleDateString());
+    }, 1000);
+  }, []);
+
+  return (
+    <section className="flex flex-wrap gap-x-64 gap-y-24 mt-40 px-24 md:px-0 pb-24 md:pb-0">
       <Clock />
+      <div className="mt-40 sm:mt-0">
+        <p className="body font-bold">The time now is</p>
+        <time className="body">{timeNow}</time>
+
+        <p className="body font-bold mt-24">Todays date is</p>
+        <time className="body">{dateNow}</time>
+      </div>
     </section>
   );
 };
