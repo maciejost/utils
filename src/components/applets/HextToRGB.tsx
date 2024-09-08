@@ -90,15 +90,17 @@ const HexToRGBApplet = () => {
           </CopyButton>
         </div>
       </div>
-      <div className="w-full sm:w-fit">
-        <p className="font-bold ">Color preview:</p>
-        <div
-          className="min-w-[160px] h-[160px] mt-8 rounded-md w-full"
-          style={{
-            backgroundColor: hex,
-          }}
-        ></div>
-      </div>
+      {hex && (
+        <div className="w-full sm:w-fit">
+          <p className="font-bold ">Color preview:</p>
+          <div
+            className="min-w-[160px] h-[160px] mt-8 rounded-md w-full"
+            style={{
+              backgroundColor: hex,
+            }}
+          ></div>
+        </div>
+      )}
     </section>
   );
 };
