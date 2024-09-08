@@ -2,6 +2,7 @@ import { initTabListener } from "@fremtind/jkl-core";
 import { TimeCalculator } from "./components/applets/TimeCalculator";
 import { AnalogClock } from "./components/applets/AnalogClock";
 import { Base64Handler } from "./components/applets/Base64Handler";
+import { HexToRGB } from "./components/applets/HextToRGB";
 
 function App() {
   initTabListener();
@@ -25,6 +26,7 @@ function App() {
         <TimeCalculator />
         <AnalogClock />
         <Base64Handler />
+        <HexToRGB />
       </section>
     </main>
   );

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: React.ReactNode;
 }
@@ -10,5 +12,22 @@ export const Button: React.FC<ButtonProps> = (props) => {
     >
       {props.children} {props.icon}
     </button>
+  );
+};
+
+export const CopyButton: React.FC<ButtonProps> = (props) => {
+  const [copied, setCopied] = useState(false);
+
+  return (
+    <Button
+      {...props}
+      onClick={(e) => {
+        props.onClick?.(e);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      }}
+    >
+      {copied ? "Copied!" : props.children}
+    </Button>
   );
 };
